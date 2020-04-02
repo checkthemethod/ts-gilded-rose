@@ -12,6 +12,15 @@ export class Item {
   }
 }
 
+export const decreasesItemQuality = (item: Item) => {
+  return --item.quality;
+}
+
+
+export const increasesItemQuality = (item: Item) => {
+  return ++item.quality;
+}
+
 export const updateItemQuality = (item: Item) => {
   if (
     item.name != AGED_BRIE &&
@@ -19,23 +28,23 @@ export const updateItemQuality = (item: Item) => {
   ) {
     if (item.quality > 0) {
       if (item.name != SULFURAS) {
-        item.quality = item.quality - 1;
+        decreasesItemQuality(item)
       }
     }
   } else {
     if (item.quality < 50) {
-      item.quality = item.quality + 1;
+      increasesItemQuality(item);
       if (
         item.name == BACKSTAGE_PASS
       ) {
         if (item.sellIn < 11) {
           if (item.quality < 50) {
-            item.quality = item.quality + 1;
+            increasesItemQuality(item);
           }
         }
         if (item.sellIn < 6) {
           if (item.quality < 50) {
-            item.quality = item.quality + 1;
+            increasesItemQuality(item);
           }
         }
       }
@@ -51,7 +60,7 @@ export const updateItemQuality = (item: Item) => {
       ) {
         if (item.quality > 0) {
           if (item.name != SULFURAS) {
-            item.quality = item.quality - 1;
+            decreasesItemQuality(item)
           }
         }
       } else {
@@ -60,7 +69,7 @@ export const updateItemQuality = (item: Item) => {
       }
     } else {
       if (item.quality < 50) {
-        item.quality = item.quality + 1;
+        increasesItemQuality(item);
       }
     }
   }
