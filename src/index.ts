@@ -13,24 +13,30 @@ export class Item {
   }
 }
 
+export const isBackstageItem = (item: Item) => {
+  return item.name === BACKSTAGE_PASS;
+}
+
+export const updateBackstageItem = (item: Item) => {
+  increasesItemQuality(item);
+  if (item.sellIn < 11) {
+    increasesItemQuality(item);
+  }
+  if (item.sellIn < 6) {
+    increasesItemQuality(item);
+  }
+  decreaseSellIn(item)
+  if (isItemExpired(item)) {
+    resetItemQualityToZero(item)
+  }
+}
 
 export const updateItemQuality = (item: Item) => {
 
   if (AgedItem.checkName(item)) {
     AgedItem.update(item)
-  } else if (item.name === BACKSTAGE_PASS) {
-      increasesItemQuality(item);
-      if (item.sellIn < 11) {
-        increasesItemQuality(item);
-      }
-      if (item.sellIn < 6) {
-        increasesItemQuality(item);
-      }
-      decreaseSellIn(item)
-    if (isItemExpired(item)) {
-      resetItemQualityToZero(item)
-    }
-
+  } else if (isBackstageItem(item)) {
+    updateBackstageItem(item)
   } else if (item.name === SULFURAS) {
 
   } else if (item.name === CONJURED_ITEM) {
