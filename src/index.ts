@@ -1,6 +1,7 @@
 import { DEXTERITY, AGED_BRIE, ELIXIR, SULFURAS, BACKSTAGE_PASS, CONJURED_ITEM } from './constants';
-import { decreasesItemQuality, increasesItemQuality, resetItemQualityToZero, decreaseSellIn, isItemExpired } from './itemActions';
+import { decreasesItemQuality, decreaseSellIn, isItemExpired } from './itemActions';
 import AgedItem from './agedItem'
+import BackstageItem from './backstageItem'
 export class Item {
   name: string;
   sellIn: number;
@@ -13,30 +14,14 @@ export class Item {
   }
 }
 
-export const isBackstageItem = (item: Item) => {
-  return item.name === BACKSTAGE_PASS;
-}
 
-export const updateBackstageItem = (item: Item) => {
-  increasesItemQuality(item);
-  if (item.sellIn < 11) {
-    increasesItemQuality(item);
-  }
-  if (item.sellIn < 6) {
-    increasesItemQuality(item);
-  }
-  decreaseSellIn(item)
-  if (isItemExpired(item)) {
-    resetItemQualityToZero(item)
-  }
-}
 
 export const updateItemQuality = (item: Item) => {
 
   if (AgedItem.checkName(item)) {
     AgedItem.update(item)
-  } else if (isBackstageItem(item)) {
-    updateBackstageItem(item)
+  } else if (BackstageItem.checkName(item)) {
+    BackstageItem.update(item)
   } else if (item.name === SULFURAS) {
 
   } else if (item.name === CONJURED_ITEM) {
