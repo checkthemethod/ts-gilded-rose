@@ -2,11 +2,11 @@ import { Item } from '.';
 import { SULFURAS } from './constants';
 
 const checkName = (item: Item) => {
-  return item.name === SULFURAS
+  return item.name === SULFURAS;
 }
 
 const update = (item: Item ) => {
-  return item
+  return item;
 }
 
-export default ({ checkName, update })
+export default ({ checkName, update });

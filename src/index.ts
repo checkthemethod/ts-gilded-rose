@@ -1,10 +1,10 @@
 import { DEXTERITY, AGED_BRIE, ELIXIR, SULFURAS, BACKSTAGE_PASS, CONJURED_ITEM } from './constants';
 
-import AgedItem from './agedItem'
-import BackstageItem from './backstageItem'
-import ConjuredItem from './conjuredItem'
-import SulfurasItem from './sulfurasItem'
-import DefaultItem from './defaultItem'
+import AgedItem from './agedItem';
+import BackstageItem from './backstageItem';
+import ConjuredItem from './conjuredItem';
+import SulfurasItem from './sulfurasItem';
+import DefaultItem from './defaultItem';
 
 export class Item {
   name: string;
@@ -23,9 +23,9 @@ const itemFactories = [AgedItem, BackstageItem, SulfurasItem, ConjuredItem];
 export const updateItemQuality = (item: Item) => {
   const selectedItem = itemFactories.find((itemFactory) => itemFactory.checkName(item))
     if(selectedItem) {
-      selectedItem.update(item)
+      selectedItem.update(item);
     } else {
-      DefaultItem.update(item)
+      DefaultItem.update(item);
     }
 }
 
@@ -49,7 +49,7 @@ export default class GildedRose {
   }
 
   updateQuality(): this {
-    this.items.forEach(updateItemQuality)
+    this.items.forEach(updateItemQuality);
     return this;
   }
 }

@@ -14,10 +14,10 @@ const update = (item: Item) => {
   if (item.sellIn < 6) {
     increasesItemQuality(item);
   }
-  decreaseSellIn(item)
+  decreaseSellIn(item);
   if (isItemExpired(item)) {
-    resetItemQualityToZero(item)
+    resetItemQualityToZero(item);
   }
 }
 
-export default ({ checkName, update })
+export default ({ checkName, update });
