@@ -1,4 +1,4 @@
-class Item {
+export class Item {
   name: string;
   sellIn: number;
   quality: number;
