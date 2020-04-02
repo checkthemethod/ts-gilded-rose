@@ -3,6 +3,8 @@ import { decreasesItemQuality, decreaseSellIn, isItemExpired } from './itemActio
 import AgedItem from './agedItem'
 import BackstageItem from './backstageItem'
 import ConjuredItem from './conjuredItem'
+import SulfurasItem from './sulfurasItem'
+
 export class Item {
   name: string;
   sellIn: number;
@@ -15,16 +17,14 @@ export class Item {
   }
 }
 
-
-
 export const updateItemQuality = (item: Item) => {
 
   if (AgedItem.checkName(item)) {
     AgedItem.update(item)
   } else if (BackstageItem.checkName(item)) {
     BackstageItem.update(item)
-  } else if (item.name === SULFURAS) {
-
+  } else if (SulfurasItem.checkName(item)) {
+    return;
   } else if (ConjuredItem.checkName(item)) {
     ConjuredItem.update(item)
   } else {
