@@ -13,11 +13,6 @@ export class Item {
   }
 }
 
-export const MIN_QUALITY: number = 0;
-
-export const isGreaterThanMinQuality = (item: Item) => {
-  return item.quality > MIN_QUALITY;
-}
 
 export const isItemExpired = (item: Item) => {
   return item.sellIn < 0;
@@ -48,18 +43,11 @@ export const updateItemQuality = (item: Item) => {
   } else if (item.name === SULFURAS) {
 
   } else {
-    if (isGreaterThanMinQuality(item)) {
-        decreasesItemQuality(item)
-    }
-
+      decreasesItemQuality(item)
       decreaseSellIn(item)
-
-    if (isItemExpired(item)) {
-        if (isGreaterThanMinQuality(item)) {
-            decreasesItemQuality(item)
-        }
-
-    }
+      if (isItemExpired(item)) {
+        decreasesItemQuality(item)
+      }
   }
 
 

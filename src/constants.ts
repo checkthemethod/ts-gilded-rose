@@ -6,4 +6,5 @@ export const BACKSTAGE_PASS: string = 'Backstage passes to a TAFKAL80ETC concert
 export const CONJURED_ITEM: string = 'Conjured Mana Cake';
 
 export const MAX_QUALITY: number = 50;
+export const MIN_QUALITY: number = 0;
 

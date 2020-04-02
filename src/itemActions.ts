@@ -1,12 +1,17 @@
 import { Item } from '.';
-import { MAX_QUALITY } from './constants';
+import { MAX_QUALITY, MIN_QUALITY } from './constants';
+
+
+export const isGreaterThanMinQuality = (item: Item) => {
+  return item.quality > MIN_QUALITY;
+}
 
 const isLessThanMaxQuality = (item: Item) => {
   return item.quality < MAX_QUALITY;
 }
 
 export const decreasesItemQuality = (item: Item) => {
-  return --item.quality;
+  return (isGreaterThanMinQuality(item)) ? --item.quality : item.quality;
 }
 
 export const increasesItemQuality = (item: Item) => {
