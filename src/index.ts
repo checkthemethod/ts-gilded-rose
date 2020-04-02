@@ -13,12 +13,7 @@ export class Item {
   }
 }
 
-export const MAX_QUALITY: number = 50;
 export const MIN_QUALITY: number = 0;
-
-export const isLessThanMaxQuality = (item: Item) => {
-  return item.quality < MAX_QUALITY;
-}
 
 export const isGreaterThanMinQuality = (item: Item) => {
   return item.quality > MIN_QUALITY;
@@ -27,24 +22,15 @@ export const isGreaterThanMinQuality = (item: Item) => {
 
 export const updateItemQuality = (item: Item) => {
   if (item.name === AGED_BRIE ) {
-    if (isLessThanMaxQuality(item)) {
       increasesItemQuality(item);
-    }
   } else if (item.name === BACKSTAGE_PASS) {
-    if (isLessThanMaxQuality(item)) {
       increasesItemQuality(item);
         if (item.sellIn < 11) {
-          if (isLessThanMaxQuality(item)) {
             increasesItemQuality(item);
-          }
         }
         if (item.sellIn < 6) {
-          if (isLessThanMaxQuality(item)) {
             increasesItemQuality(item);
-          }
         }
-    }
-
   } else {
     if (isGreaterThanMinQuality(item)) {
       if (item.name != SULFURAS) {
@@ -59,9 +45,7 @@ export const updateItemQuality = (item: Item) => {
 
   if (item.sellIn < 0) {
     if (item.name === AGED_BRIE) {
-      if (isLessThanMaxQuality(item)) {
         increasesItemQuality(item);
-      }
 
     } else if (
         item.name != BACKSTAGE_PASS
