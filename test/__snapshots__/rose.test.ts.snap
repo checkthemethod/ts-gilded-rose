@@ -102,7 +102,7 @@ Array [
     },
     Object {
       "name": "Conjured Mana Cake",
-      "quality": 5,
+      "quality": 4,
       "sellIn": 2,
     },
   ],
@@ -154,7 +154,7 @@ Array [
     },
     Object {
       "name": "Conjured Mana Cake",
-      "quality": 4,
+      "quality": 2,
       "sellIn": 1,
     },
   ],
@@ -206,7 +206,7 @@ Array [
     },
     Object {
       "name": "Conjured Mana Cake",
-      "quality": 3,
+      "quality": 0,
       "sellIn": 0,
     },
   ],
@@ -258,7 +258,7 @@ Array [
     },
     Object {
       "name": "Conjured Mana Cake",
-      "quality": 1,
+      "quality": 0,
       "sellIn": -1,
     },
   ],

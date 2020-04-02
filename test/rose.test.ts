@@ -59,4 +59,11 @@ describe('updateQuality Tests', () => {
     }
     expect(expected).toMatchSnapshot()
   })
+
+  describe('updateQuality Test for Conjured Item', () => {
+    const items = [new Item(CONJURED_ITEM, 5, 10)]
+    const gildedRose = new GildedRose(items);
+    gildedRose.updateQuality()
+    expect(gildedRose.items[0].quality).toBe(8)
+  })
 })

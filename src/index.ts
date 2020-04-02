@@ -42,6 +42,15 @@ export const updateItemQuality = (item: Item) => {
 
   } else if (item.name === SULFURAS) {
 
+  } else if (item.name === CONJURED_ITEM) {
+    decreasesItemQuality(item)
+    decreasesItemQuality(item)
+    decreaseSellIn(item)
+    if (isItemExpired(item)) {
+      decreasesItemQuality(item)
+      decreasesItemQuality(item)
+    }
+
   } else {
       decreasesItemQuality(item)
       decreaseSellIn(item)
