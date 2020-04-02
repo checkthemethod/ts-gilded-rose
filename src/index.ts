@@ -13,9 +13,9 @@ class Item {
 export default class GildedRose {
   items: Item[];
 
-  constructor() {
-    this.items = [];
-    this.initializeData();
+  constructor(items: Item[] = []) {
+    this.items = items;
+    if(this.items.length == 0) this.initializeData();
   }
 
   initializeData() {
