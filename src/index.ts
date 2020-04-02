@@ -18,21 +18,15 @@ export class Item {
   }
 }
 
+const itemFactories = [AgedItem, BackstageItem, SulfurasItem, ConjuredItem];
+
 export const updateItemQuality = (item: Item) => {
-
-  if (AgedItem.checkName(item)) {
-    AgedItem.update(item)
-  } else if (BackstageItem.checkName(item)) {
-    BackstageItem.update(item)
-  } else if (SulfurasItem.checkName(item)) {
-    return;
-  } else if (ConjuredItem.checkName(item)) {
-    ConjuredItem.update(item)
-  } else {
+  const selectedItem = itemFactories.find((itemFactory) => itemFactory.checkName(item))
+    if(selectedItem) {
+      selectedItem.update(item)
+    } else {
       DefaultItem.update(item)
-  }
-
-
+    }
 }
 
 export default class GildedRose {
