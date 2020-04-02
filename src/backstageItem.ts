@@ -2,11 +2,11 @@ import { Item } from '.';
 import { BACKSTAGE_PASS } from './constants';
 import { increasesItemQuality, resetItemQualityToZero, decreaseSellIn, isItemExpired } from './itemActions';
 
-export const checkName = (item: Item) => {
+const checkName = (item: Item) => {
   return item.name === BACKSTAGE_PASS;
 }
 
-export const update = (item: Item) => {
+const update = (item: Item) => {
   increasesItemQuality(item);
   if (item.sellIn < 11) {
     increasesItemQuality(item);
