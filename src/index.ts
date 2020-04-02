@@ -45,22 +45,18 @@ export const updateItemQuality = (item: Item) => {
       resetItemQualityToZero(item)
     }
 
+  } else if (item.name === SULFURAS) {
+
   } else {
     if (isGreaterThanMinQuality(item)) {
-      if (item.name != SULFURAS) {
         decreasesItemQuality(item)
-      }
     }
 
-    if (item.name != SULFURAS) {
       decreaseSellIn(item)
-    }
 
     if (isItemExpired(item)) {
         if (isGreaterThanMinQuality(item)) {
-          if (item.name != SULFURAS) {
             decreasesItemQuality(item)
-          }
         }
 
     }
