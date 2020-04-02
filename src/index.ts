@@ -19,10 +19,15 @@ export const isGreaterThanMinQuality = (item: Item) => {
   return item.quality > MIN_QUALITY;
 }
 
+export const isItemExpired = (item: Item) => {
+  return item.sellIn < 0;
+}
 
 export const updateItemQuality = (item: Item) => {
+
   if (item.name === AGED_BRIE ) {
       increasesItemQuality(item);
+
   } else if (item.name === BACKSTAGE_PASS) {
       increasesItemQuality(item);
         if (item.sellIn < 11) {
@@ -43,7 +48,7 @@ export const updateItemQuality = (item: Item) => {
     decreaseSellIn(item)
   }
 
-  if (item.sellIn < 0) {
+  if (isItemExpired(item)) {
     if (item.name === AGED_BRIE) {
         increasesItemQuality(item);
 
