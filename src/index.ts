@@ -18,15 +18,23 @@ export const isItemExpired = (item: Item) => {
   return item.sellIn < 0;
 }
 
+export const isAgedItem = (item: Item) => {
+  return item.name === AGED_BRIE
+}
+export const updateAgedItem = (item: Item) => {
+  increasesItemQuality(item);
+
+  decreaseSellIn(item)
+  if (isItemExpired(item)) {
+    increasesItemQuality(item);
+  }
+
+}
+
 export const updateItemQuality = (item: Item) => {
 
-  if (item.name === AGED_BRIE ) {
-      increasesItemQuality(item);
-
-      decreaseSellIn(item)
-      if (isItemExpired(item)) {
-        increasesItemQuality(item);
-      }
+  if (isAgedItem(item)) {
+    updateAgedItem(item)
   } else if (item.name === BACKSTAGE_PASS) {
       increasesItemQuality(item);
       if (item.sellIn < 11) {
