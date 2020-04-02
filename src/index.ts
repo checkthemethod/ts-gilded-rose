@@ -82,9 +82,7 @@ export default class GildedRose {
   }
 
   updateQuality(): this {
-    for (var i = 0; i < this.items.length; i++) {
-      updateItemQuality(this.items[i])
-    }
+    this.items.forEach(updateItemQuality)
     return this;
   }
 }
