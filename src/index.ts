@@ -14,9 +14,14 @@ export class Item {
 }
 
 export const MAX_QUALITY: number = 50;
+export const MIN_QUALITY: number = 0;
 
 export const isLessThanMaxQuality = (item: Item) => {
   return item.quality < MAX_QUALITY;
+}
+
+export const isGreaterThanMinQuality = (item: Item) => {
+  return item.quality > MIN_QUALITY;
 }
 
 
@@ -43,7 +48,7 @@ export const updateItemQuality = (item: Item) => {
       }
     }
   } else {
-    if (item.quality > 0) {
+    if (isGreaterThanMinQuality(item)) {
       if (item.name != SULFURAS) {
         decreasesItemQuality(item)
       }
@@ -65,7 +70,7 @@ export const updateItemQuality = (item: Item) => {
       if (
         item.name != BACKSTAGE_PASS
       ) {
-        if (item.quality > 0) {
+        if (isGreaterThanMinQuality(item)) {
           if (item.name != SULFURAS) {
             decreasesItemQuality(item)
           }
