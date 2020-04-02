@@ -65,9 +65,7 @@ export const updateItemQuality = (item: Item) => {
         increasesItemQuality(item);
       }
 
-    } else {
-
-      if (
+    } else if (
         item.name != BACKSTAGE_PASS
       ) {
         if (isGreaterThanMinQuality(item)) {
@@ -75,9 +73,8 @@ export const updateItemQuality = (item: Item) => {
             decreasesItemQuality(item)
           }
         }
-      } else {
-        resetItemQualityToZero(item)
-      }
+    } else {
+      resetItemQualityToZero(item)
     }
   }
 }
