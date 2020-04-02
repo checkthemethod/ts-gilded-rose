@@ -25,6 +25,10 @@ export const resetItemQualityToZero = (item: Item) => {
   return item.quality;
 }
 
+export const decreaseSellIn = (item: Item) => {
+  item.sellIn -= 1;
+  return item.sellIn;
+}
 
 export const updateItemQuality = (item: Item) => {
   if (
@@ -56,7 +60,7 @@ export const updateItemQuality = (item: Item) => {
     }
   }
   if (item.name != SULFURAS) {
-    item.sellIn = item.sellIn - 1;
+    decreaseSellIn(item)
   }
   if (item.sellIn < 0) {
     if (item.name != AGED_BRIE) {
