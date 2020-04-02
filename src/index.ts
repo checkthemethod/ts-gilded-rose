@@ -16,10 +16,15 @@ export const decreasesItemQuality = (item: Item) => {
   return --item.quality;
 }
 
-
 export const increasesItemQuality = (item: Item) => {
   return ++item.quality;
 }
+
+export const resetItemQualityToZero = (item: Item) => {
+  item.quality -= item.quality;
+  return item.quality;
+}
+
 
 export const updateItemQuality = (item: Item) => {
   if (
@@ -64,8 +69,7 @@ export const updateItemQuality = (item: Item) => {
           }
         }
       } else {
-        item.quality =
-          item.quality - item.quality;
+        resetItemQualityToZero(item)
       }
     } else {
       if (item.quality < 50) {
