@@ -5,4 +5,8 @@ const checkName = (item: Item) => {
   return item.name === SULFURAS
 }
 
-export default ({ checkName })
+const update = (item: Item ) => {
+  return item
+}
+
+export default ({ checkName, update })
