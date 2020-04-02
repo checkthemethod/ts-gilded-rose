@@ -13,23 +13,30 @@ export class Item {
   }
 }
 
+export const MAX_QUALITY: number = 50;
+
+export const isLessThanMaxQuality = (item: Item) => {
+  return item.quality < MAX_QUALITY;
+}
+
+
 export const updateItemQuality = (item: Item) => {
   if (
     item.name === AGED_BRIE ||
     item.name === BACKSTAGE_PASS
   ) {
-    if (item.quality < 50) {
+    if (isLessThanMaxQuality(item)) {
       increasesItemQuality(item);
       if (
         item.name == BACKSTAGE_PASS
       ) {
         if (item.sellIn < 11) {
-          if (item.quality < 50) {
+          if (isLessThanMaxQuality(item)) {
             increasesItemQuality(item);
           }
         }
         if (item.sellIn < 6) {
-          if (item.quality < 50) {
+          if (isLessThanMaxQuality(item)) {
             increasesItemQuality(item);
           }
         }
@@ -49,7 +56,7 @@ export const updateItemQuality = (item: Item) => {
 
   if (item.sellIn < 0) {
     if (item.name === AGED_BRIE) {
-      if (item.quality < 50) {
+      if (isLessThanMaxQuality(item)) {
         increasesItemQuality(item);
       }
 
