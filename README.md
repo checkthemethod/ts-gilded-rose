@@ -56,7 +56,7 @@ Just for clarification, an item can never have its _quality_ increase
 above 50, however "Sulfuras" is a legendary item and as such its
 _quality_ is 80 and it never alters.
 
-## Boulevard Instructions
+## Instructions
 
 Consider this an exercise in refactoring a legacy system to make your
 feature easier to implement, and leave things in a more maintainable
